@@ -1,0 +1,50 @@
+
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Aadya's Poems</title>
+    <script type="text/javascript" src= 'https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js'></script>
+    <script type="text/javascript" src= "{% static 'turn.min.js'  %}"></script>
+	<style type="text/css">
+		body{
+			overflow: hidden;
+		}
+		#flipbook .page{
+			background: white;
+		}
+		#flipbook .shadow{
+		box-shadow: 0 4px 10px #666;
+		}
+	</style> 
+
+</head>
+<body>
+	<div id="flipbook">
+		<div>
+			<h2>First Page</h2>
+			<img src="{% static 'BaseWallpaper.jpg' %}">
+		</div>
+		<div>
+			<h2>Second Page</h2>
+			<p>runserver, or do you have a proper webserver? Django doesn't usually serve static files at all, and you have to set up your webserver to serve them directly, except when you run manage.py runserver, which does serve static files</p>
+		</div>
+		<div>
+			<h2>Third Page</h2>
+			<p>r environment? Are you running manage.py runserver, or do you have a proper webserver? Django doesn't usually serve static files at all, and you have to set up your webserver to serve them directly, except when you run manage.py runserver, which does serve static files</p>
+		</div>
+	</div>
+	<script type="text/javascript">
+		$("#flipbook").turn({
+			width:600,
+			height:400,
+			page:1,
+			autoCenter:true,
+			duration:2000
+		})
+	</script>	
+</body>
+</html>
+

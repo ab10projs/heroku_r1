@@ -19,12 +19,14 @@ import dj_database_url
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 templates =os.path.join(BASE_DIR, 'templates')
-
+STATIC_DIR = os.path.join(BASE_DIR, 'static')
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
+# Only the two lines with $$$$$$$$ signs need to be commented/uncommented
+
 SECRET_KEY = config('SECRET_KEY') #commented in local   $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
 #SECRET_KEY = 'django-insecure-lw_(t$=s-$@)o@#1xg!v*8kddxdg2bzt(lk1_hr)462oeqmb(x'  #uncommented in local  $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
 
@@ -44,6 +46,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'address_book',
+    'aadya',
 ]
 
 MIDDLEWARE = [
@@ -134,8 +137,17 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
 
 
-STATIC_ROOT = os.path.join(BASE_DIR,'staticfiles')
-STATIC_URL = 'static/'
+
+#STATIC_ROOT = os.path.join(BASE_DIR,'static')
+#STATIC_ROOT ='/staticfiles/' 
+STATIC_URL = '/static/'
+
+STATICFILES_DIRS =[STATIC_DIR]
+
+
+# STATICFILES_DIRS = (
+#     os.path.join(BASE_DIR, "staticfiles"),
+# )
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
