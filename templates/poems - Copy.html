@@ -67,8 +67,6 @@
       <br>
       <p> &nbsp; &nbsp;   Just like how the sun and rain meet to make a beautiful rainbow,  </p>
       <p> &nbsp; &nbsp;   In our life we need to embrace moments of joy and sorrow. </p>
-
-      
     </div>
     <div>
       <img src="https://cdn.pixabay.com/photo/2014/12/16/22/25/woman-570883_640.jpg">
@@ -195,14 +193,17 @@
 
   </div>
   <script type="text/javascript">
-    $("#flipbook").turn({
-      width:1350,
-      height:450,
-      page:1,
-      autoCenter:true,
-      duration:2000,
-    })
-    $('#flipbook').turn('peel', 'br');
+    var flipbookEL = document.getElementById('flipbook');
+
+    window.addEventListener('resize', function (e) {
+      flipbookEL.style.width = '';
+      flipbookEL.style.height = '';
+      $(flipbookEL).turn('size', flipbookEL.clientWidth, flipbookEL.clientHeight);
+    });
+
+    $(flipbookEL).turn({
+        autoCenter: true
+    });
   </script> 
 </body>
 </html>
